@@ -8366,7 +8366,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   `;__decorateClass$8([e()],MateuFieldGroup.prototype,"fieldGroup",2);__decorateClass$8([e()],MateuFieldGroup.prototype,"formElement",2);MateuFieldGroup=__decorateClass$8([e$1("mateu-fieldgroup")],MateuFieldGroup);var __defProp$7=Object.defineProperty,__getOwnPropDesc$7=Object.getOwnPropertyDescriptor,__decorateClass$7=(ee,K,Y,J)=>{for(var te=J>1?void 0:J?__getOwnPropDesc$7(K,Y):K,ie=ee.length-1,ae;ie>=0;ie--)(ae=ee[ie])&&(te=(J?ae(K,Y,te):ae(te))||te);return J&&te&&__defProp$7(K,Y,te),te};let MateuSection=class extends s$1{render(){return y$1`
       <div class="mateu-section">
 
-        ${this.section.caption?y$1`<h1>${this.section.caption}</h1>`:""}
+        ${this.section.caption?y$1`<h2>${this.section.caption}</h2>`:""}
         
         ${this.section.fieldGroups.map(ee=>y$1`<mateu-fieldgroup .fieldGroup="${ee}" .formElement=${this.formElement}></mateu-fieldgroup>`)}
         
@@ -8378,7 +8378,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       border: 1px solid lightgrey;
       border-radius: 8px;
       padding: 2rem;  
-      margin-bottom: 16px;    
+      margin-bottom: 16px;       
+      padding-top: 14px;   
+    }
+    
+    .mateu-section:has(h1) {
+      padding-top: 0px;
     }
 
   `;__decorateClass$7([e()],MateuSection.prototype,"section",2);__decorateClass$7([e()],MateuSection.prototype,"formElement",2);MateuSection=__decorateClass$7([e$1("mateu-section")],MateuSection);registerStyles("vaadin-notification-card",i$5`
