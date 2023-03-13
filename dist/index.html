@@ -22,7 +22,7 @@
         document.documentElement.setAttribute('theme', 'light')
       }
 
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener(function (e, listener) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         document.documentElement.setAttribute('theme', e.matches?'dark':'light')
       });
     }
