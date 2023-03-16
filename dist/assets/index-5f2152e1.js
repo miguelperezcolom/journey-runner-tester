@@ -9639,33 +9639,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="toggle-label"><slot></slot></div>
 
-  `;template$3.setAttribute("strip-whitespace","");Polymer({_template:template$3,is:"paper-toggle-button",behaviors:[PaperCheckedElementBehavior],hostAttributes:{role:"button","aria-pressed":"false",tabindex:0},properties:{},listeners:{track:"_ontrack"},attached:function(){afterNextRender(this,function(){setTouchAction(this,"pan-y")})},_ontrack:function(ee){var Y=ee.detail;Y.state==="start"?this._trackStart(Y):Y.state==="track"?this._trackMove(Y):Y.state==="end"&&this._trackEnd(Y)},_trackStart:function(ee){this._width=this.$.toggleBar.offsetWidth/2,this._trackChecked=this.checked,this.$.toggleButton.classList.add("dragging")},_trackMove:function(ee){var Y=ee.dx;this._x=Math.min(this._width,Math.max(0,this._trackChecked?this._width+Y:Y)),this.translate3d(this._x+"px",0,0,this.$.toggleButton),this._userActivate(this._x>this._width/2)},_trackEnd:function(ee){this.$.toggleButton.classList.remove("dragging"),this.transform("",this.$.toggleButton)},_createRipple:function(){this._rippleContainer=this.$.toggleButton;var ee=PaperRippleBehavior._createRipple();return ee.id="ink",ee.setAttribute("recenters",""),ee.classList.add("circle","toggle-ink"),ee}});var __defProp$b=Object.defineProperty,__getOwnPropDesc$b=Object.getOwnPropertyDescriptor,__decorateClass$b=(ee,Y,K,J)=>{for(var te=J>1?void 0:J?__getOwnPropDesc$b(Y,K):Y,ie=ee.length-1,re;ie>=0;ie--)(re=ee[ie])&&(te=(J?re(Y,K,te):re(te))||te);return J&&te&&__defProp$b(Y,K,te),te};let FieldToggle=class extends s$1{constructor(){super(...arguments),this.required=!1,this.label="",this.placeholder="",this.name="",this.onChange=ee=>{const Y=ee.target;this.onValueChanged({value:Y.checked})},this.enabled=!0}setRequired(ee){this.required=ee}setField(ee){this.field=ee}setLabel(ee){this.label=ee}setPlaceholder(ee){this.placeholder=ee}setEnabled(ee){this.enabled=ee}onValueChanged(ee){console.log(ee)}setValue(ee){this.value=ee}render(){return y$1`
+  `;template$3.setAttribute("strip-whitespace","");Polymer({_template:template$3,is:"paper-toggle-button",behaviors:[PaperCheckedElementBehavior],hostAttributes:{role:"button","aria-pressed":"false",tabindex:0},properties:{},listeners:{track:"_ontrack"},attached:function(){afterNextRender(this,function(){setTouchAction(this,"pan-y")})},_ontrack:function(ee){var Y=ee.detail;Y.state==="start"?this._trackStart(Y):Y.state==="track"?this._trackMove(Y):Y.state==="end"&&this._trackEnd(Y)},_trackStart:function(ee){this._width=this.$.toggleBar.offsetWidth/2,this._trackChecked=this.checked,this.$.toggleButton.classList.add("dragging")},_trackMove:function(ee){var Y=ee.dx;this._x=Math.min(this._width,Math.max(0,this._trackChecked?this._width+Y:Y)),this.translate3d(this._x+"px",0,0,this.$.toggleButton),this._userActivate(this._x>this._width/2)},_trackEnd:function(ee){this.$.toggleButton.classList.remove("dragging"),this.transform("",this.$.toggleButton)},_createRipple:function(){this._rippleContainer=this.$.toggleButton;var ee=PaperRippleBehavior._createRipple();return ee.id="ink",ee.setAttribute("recenters",""),ee.classList.add("circle","toggle-ink"),ee}});var __defProp$b=Object.defineProperty,__getOwnPropDesc$b=Object.getOwnPropertyDescriptor,__decorateClass$b=(ee,Y,K,J)=>{for(var te=J>1?void 0:J?__getOwnPropDesc$b(Y,K):Y,ie=ee.length-1,re;ie>=0;ie--)(re=ee[ie])&&(te=(J?re(Y,K,te):re(te))||te);return J&&te&&__defProp$b(Y,K,te),te};let FieldToggle=class extends s$1{constructor(){super(...arguments),this.required=!1,this.label="",this.placeholder="",this.name="",this.onChange=ee=>{const Y=ee.target;console.log("toggle changed",Y.checked),this.onValueChanged({value:Y.checked})},this.enabled=!0}setRequired(ee){this.required=ee}setField(ee){this.field=ee}setLabel(ee){this.label=ee}setPlaceholder(ee){this.placeholder=ee}setEnabled(ee){this.enabled=ee}onValueChanged(ee){console.log(ee)}setValue(ee){console.log("toggle value set",ee),this.value=ee}render(){return y$1`
             <div class="vaadin-field-container">
-                <div part="label">
-                    <slot name="label">${this.label}</slot>
-                    <span part="required-indicator" aria-hidden="true" on-click="focus"></span>
-                </div>
-
-                <vaadin-input-container
-                        part="input-field"
-                        disabled="${!this.enabled}"
-                        invalid="false"
-                        theme$="[[_theme]]"
-                >
-                    <slot name="prefix" slot="prefix"></slot>
-                    <slot name="input"><paper-toggle-button id="mitoggle" checked @change=${this.onChange}></paper-toggle-button></slot>
-                    <slot name="suffix" slot="suffix"></slot>
-                </vaadin-input-container>
-                
-                <div part="helper-text">
-                    <slot name="helper">Texto de ayuda</slot>
-                </div>
-
-                <div part="error-message">
-                    <slot name="error-message">Mensaje de error</slot>
-                </div>
+                <vaadin-horizontal-layout>
+                    <h5 style="flex-grow: 1;">${this.label}</h5>
+                    <paper-toggle-button id="mitoggle"
+                                         ?disabled=${!this.enabled}
+                                         ?checked=${this.value}
+                                         @change=${this.onChange}></paper-toggle-button>
+                </vaadin-horizontal-layout>
             </div>
-            <slot name="tooltip"></slot>
             `}};__decorateClass$b([e()],FieldToggle.prototype,"required",2);__decorateClass$b([e()],FieldToggle.prototype,"label",2);__decorateClass$b([e()],FieldToggle.prototype,"placeholder",2);__decorateClass$b([e()],FieldToggle.prototype,"name",2);__decorateClass$b([e()],FieldToggle.prototype,"onChange",2);__decorateClass$b([e()],FieldToggle.prototype,"value",2);__decorateClass$b([e()],FieldToggle.prototype,"enabled",2);__decorateClass$b([e()],FieldToggle.prototype,"field",2);FieldToggle=__decorateClass$b([e$1("field-toggle")],FieldToggle);registerStyles("vaadin-progress-bar",i$5`
     :host {
       height: calc(var(--lumo-size-l) / 10);
